@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    font-size: 15.5px;
+  }
+  @media (min-width: 1440px) {
+    html {
+      font-size: 16.5px;
+    }
+  }
+
+  :root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --surface: #ffffff;
+    --surface-secondary: #f1f5f9;
+    --border: #e2e8f0;
+    --border-subtle: #cbd5e1;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --accent: #06b6d4;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+
+  .dark {
+    --background: #0b1220;
+    --foreground: #f8fafc;
+    --surface: #111827;
+    --surface-secondary: #172033;
+    --border: #2a3952;
+    --border-subtle: #1e293b;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent: #06b6d4;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Pyidaungsu", "Noto Sans Myanmar", "Padauk", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+}
+
+/* Custom Scrollbar for compact tables & lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #2a3952;
+}
+
+/* Print Invoice styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Hide Next.js Dev Tools Indicator ("N" badge) */
+nextjs-portal,
+[data-nextjs-toast],
+[data-next-badge],
+[data-nextjs-dev-tools-button],
+button[aria-label="Next.js Dev Tools"],
+div[data-nextjs-dev-tools],
+#nextjs-dev-tools,
+.__next-dev-indicator,
+nextjs-dev-tools {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
